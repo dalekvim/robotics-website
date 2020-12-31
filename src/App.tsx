@@ -10,7 +10,7 @@ import { Login } from "./pages/Login";
 export const App: React.FC = () => {
   return (
     <HashRouter basename="/">
-      <Route path="/" component={Home} exact />
+      <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/comment" component={Comment} />
       <Route path="/contact" component={Contact} />
