@@ -90,7 +90,6 @@ export const Comment: React.FC = () => {
 
   return (
     <Layout>
-      <Alert variant="info">This page is under Maintenence.</Alert>
       <Struct title="The Comment Section" importance={1}>
         <InputGroup>
           <InputGroup.Prepend>
@@ -100,7 +99,7 @@ export const Comment: React.FC = () => {
                 postComment(value);
               }}
             >
-              Button
+              Post
             </Button>
           </InputGroup.Prepend>
           <FormControl
