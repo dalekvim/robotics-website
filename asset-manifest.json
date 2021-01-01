@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/robotics-website/static/js/main.be03e6ed.chunk.js",
-    "main.js.map": "/robotics-website/static/js/main.be03e6ed.chunk.js.map",
+    "main.js": "/robotics-website/static/js/main.aec7d55e.chunk.js",
+    "main.js.map": "/robotics-website/static/js/main.aec7d55e.chunk.js.map",
     "runtime-main.js": "/robotics-website/static/js/runtime-main.1dd7080e.js",
     "runtime-main.js.map": "/robotics-website/static/js/runtime-main.1dd7080e.js.map",
     "static/css/2.1a02f21c.chunk.css": "/robotics-website/static/css/2.1a02f21c.chunk.css",
-    "static/js/2.68dbb684.chunk.js": "/robotics-website/static/js/2.68dbb684.chunk.js",
-    "static/js/2.68dbb684.chunk.js.map": "/robotics-website/static/js/2.68dbb684.chunk.js.map",
+    "static/js/2.15fb14fb.chunk.js": "/robotics-website/static/js/2.15fb14fb.chunk.js",
+    "static/js/2.15fb14fb.chunk.js.map": "/robotics-website/static/js/2.15fb14fb.chunk.js.map",
     "index.html": "/robotics-website/index.html",
     "static/css/2.1a02f21c.chunk.css.map": "/robotics-website/static/css/2.1a02f21c.chunk.css.map",
-    "static/js/2.68dbb684.chunk.js.LICENSE.txt": "/robotics-website/static/js/2.68dbb684.chunk.js.LICENSE.txt"
+    "static/js/2.15fb14fb.chunk.js.LICENSE.txt": "/robotics-website/static/js/2.15fb14fb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1dd7080e.js",
     "static/css/2.1a02f21c.chunk.css",
-    "static/js/2.68dbb684.chunk.js",
-    "static/js/main.be03e6ed.chunk.js"
+    "static/js/2.15fb14fb.chunk.js",
+    "static/js/main.aec7d55e.chunk.js"
   ]
 }
