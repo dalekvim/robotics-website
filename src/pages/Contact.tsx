@@ -7,13 +7,13 @@ export const Contact: React.FC = () => {
       <h1>Contact Us</h1>
       <div>
         <Member name="Mahir Mansoor" email="mmansoor@wigstonstudents.org">
-          <p>Enter Text Here.</p>
+          Enter Text Here.
         </Member>
         <Member name="Callum Chandler" email="cchandler@wigstonstudents.org">
-          <p>Enter text Here.</p>
+          Enter text Here.
         </Member>
         <Member name="Vimal Vinod" email="vvinod@wigstonstudents.org">
-          <p>Second times is not the charm.</p>
+          Second times is not the charm.
         </Member>
       </div>
     </Layout>
