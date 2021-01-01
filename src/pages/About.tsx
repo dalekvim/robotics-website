@@ -83,7 +83,7 @@ export const About: React.FC = () => {
               <p>
                 The backend was created using Node.js and Express. Here is a
                 link to the API I created:{" "}
-                <a href="https://limitless-springs-67845.herokuapp.com/api">
+                <a href="https://limitless-springs-67845.herokuapp.com">
                   limitless-springs
                 </a>
                 . It's a default name...
