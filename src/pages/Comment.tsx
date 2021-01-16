@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { Field, Formik, Form } from "formik";
-import Spinner from "react-bootstrap/Spinner";
-import ListGroup from "react-bootstrap/ListGroup";
+import {
+  Alert,
+  Button,
+  FormControl,
+  InputGroup,
+  ListGroup,
+  Spinner,
+} from "react-bootstrap";
 import { Layout } from "../components/Layout";
 import { Struct } from "../components/Struct";
-import { Button, FormControl, InputGroup } from "react-bootstrap";
 
 const COMMENTS = gql`
   query {
@@ -33,18 +38,30 @@ interface IComment {
 export const Comment: React.FC = () => {
   const { loading, error, data } = useQuery(COMMENTS);
   const [createComment] = useMutation(CREATE_COMMENT);
+  const [alert, setAlert] = useState(<></>);
 
   return (
     <Layout>
+      {alert}
       <Struct title="The Comment Section" importance={1}>
         <Formik
           initialValues={{ content: "" }}
-          onSubmit={async ({ content }, { setSubmitting }) => {
+          onSubmit={async ({ content }, { setSubmitting, resetForm }) => {
             if (content) {
+              setAlert(<></>);
               setSubmitting(true);
-              await createComment({ variables: { content: content } });
+              await createComment({
+                variables: { content: content },
+                refetchQueries: [{ query: COMMENTS }],
+              });
+              resetForm();
               setSubmitting(false);
-              window.location.reload();
+            } else {
+              setAlert(
+                <Alert variant="warning">
+                  You can't post an empty comment.
+                </Alert>
+              );
             }
           }}
         >

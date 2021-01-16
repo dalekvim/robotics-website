@@ -13,9 +13,10 @@ export const Home: React.FC = () => {
         <p className="lead">Welcome to the brand new Robotics Club Website!</p>
         <div className="text-justify">
           <p>
-            There is no one in this club, other than Mahir I guess, capable of
-            talking to actual humans, but if there were, they would be activally
-            be searching for new members:
+            There is no one in this club, other than Mahir of course, capable of
+            talking to actual humans, but if there were, he (let's be honest,
+            it's not going to be a she) would be actively be searching for new
+            members:
           </p>
           <p>
             <b>
@@ -23,6 +24,16 @@ export const Home: React.FC = () => {
               by!
             </b>
           </p>
+          <Struct title="Update from the 15th of January 2021" importance={3}>
+            <p>
+              I recently heard plans from Mrs Nemaura to change the times for
+              the Robotics Club into more convenient ones:
+            </p>
+            <p>
+              It turns out most people don't stick around at school on Friday
+              afternoons, but then again that shouldn't have been a surprise.
+            </p>
+          </Struct>
         </div>
         <Struct title="FAQs" importance={2}>
           <Struct title="When and where is it?" importance={3}>
