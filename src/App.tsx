@@ -1,6 +1,6 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Comment } from "./pages/Comment";

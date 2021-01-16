@@ -6,10 +6,6 @@ export const About: React.FC = () => {
     <Layout>
       <Struct title="About this Website" importance={1}>
         <div className="Intro">
-          <p className="lead">
-            This website was made by Vimal Vinod, who refers to himself as 'I'
-            or 'me' depending on the situation.
-          </p>
           <div className="text-justify">
             <p>
               This website was made using the MERN stack; that's MongoDB,
@@ -18,19 +14,31 @@ export const About: React.FC = () => {
               backend.
             </p>
             <p>
-              If you happen to have some free time on your hands and want to
-              contribute to the website, contact me. You don't need to know
-              React, a bit of HTML should be enough, unless you want to help out
-              with the backend.
+              So, if you happen to have some free time on your hands and want to
+              contribute to the website, you can, but you have to join the
+              robotics club.
             </p>
-            <p>Minimum requirements for a Backend Developer:</p>
-            <ul>
-              <li>Knows basic Javascript</li>
-              <li>Knows/willing to learn Node.js</li>
-            </ul>
+            <Struct
+              title="Minimum requirements for a Frontend Developer:"
+              importance={4}
+            >
+              <ul>
+                <li>Knows the basics of HTML</li>
+                <li>Knows/willing to learn React</li>
+              </ul>
+            </Struct>
+            <Struct
+              title="Minimum requirements for a Backend Developer:"
+              importance={4}
+            >
+              <ul>
+                <li>Knows basic Javascript, preferrably ES6</li>
+                <li>Knows/willing to learn Node.js</li>
+              </ul>
+            </Struct>
           </div>
         </div>
-        <Struct title="Details" importance={2}>
+        <Struct title="Details for Newbies" importance={2}>
           <div className="text-justify">
             <Struct title="Typescript" importance={3}>
               <p>
@@ -95,8 +103,8 @@ export const About: React.FC = () => {
                 wanted to try out the MERN Stack.
               </p>
               <p>
-                The data base is basically for storing comments for the comment
-                section I am making.
+                The database is basically for storing data that you don't want
+                to lose when the user refreshes their browser, like comments.
               </p>
             </Struct>
           </div>
