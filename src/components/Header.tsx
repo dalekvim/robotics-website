@@ -21,6 +21,11 @@ export const Header: React.FC = () => {
           <Nav.Link as={Link} to="/contact" replace>
             Contact Us
           </Nav.Link>
+        </Nav>
+        <Nav>
+          <Nav.Link as={Link} to="/register" replace>
+            Register
+          </Nav.Link>
           <Nav.Link as={Link} to="/login" replace>
             Login
           </Nav.Link>

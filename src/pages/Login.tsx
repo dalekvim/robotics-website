@@ -1,27 +1,72 @@
-import Form from "react-bootstrap/Form";
+import { Field, Formik, Form as FForm } from "formik";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { Layout } from "../components/Layout";
 import { Struct } from "../components/Struct";
+import { gql, useMutation } from "@apollo/client";
+import { useContext, useState } from "react";
+import { AuthContext } from "../App";
+
+const LOGIN = gql`
+  mutation($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      accessToken
+    }
+  }
+`;
 
 export const Login: React.FC = () => {
+  const [login] = useMutation(LOGIN);
+  const [alert, setAlert] = useState(<></>);
+  const { setAccessToken } = useContext(AuthContext);
+
   return (
     <Layout>
-      <Alert variant="info">This page is under Construction.</Alert>
+      {alert}
       <Struct title="Login Page" importance={1}>
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          onSubmit={async ({ email, password }, { setSubmitting }) => {
+            setSubmitting(true);
+            try {
+              const { data } = await login({ variables: { email, password } });
+              setAccessToken(data!.login.accessToken);
+              setAlert(
+                <Alert variant="success">Logged in successfully.</Alert>
+              );
+            } catch (err) {
+              setAlert(<Alert variant="warning">{err.message}</Alert>);
+            }
+            setSubmitting(false);
+          }}
+        >
+          {() => (
+            <FForm>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Field
+                  name="email"
+                  type="email"
+                  placeholder="Enter email"
+                  as={Form.Control}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Field
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  as={Form.Control}
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </FForm>
+          )}
+        </Formik>
       </Struct>
     </Layout>
   );
