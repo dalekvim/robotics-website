@@ -38,7 +38,7 @@ export const About: React.FC = () => {
             </Struct>
           </div>
         </div>
-        <Struct title="Details for Newbies" importance={2}>
+        <Struct title="Details" importance={2}>
           <div className="text-justify">
             <Struct title="Typescript" importance={3}>
               <p>

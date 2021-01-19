@@ -23,6 +23,9 @@ export const Header: React.FC = () => {
           </Nav.Link>
         </Nav>
         <Nav>
+          <Nav.Link as={Link} to="/profile" replace>
+            Profile
+          </Nav.Link>
           <Nav.Link as={Link} to="/register" replace>
             Register
           </Nav.Link>
