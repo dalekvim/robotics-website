@@ -15,11 +15,11 @@ export const Header: React.FC = () => {
           <Nav.Link as={Link} to="/about" replace>
             About
           </Nav.Link>
-          <Nav.Link as={Link} to="/comment" replace>
-            Comment
-          </Nav.Link>
           <Nav.Link as={Link} to="/contact" replace>
             Contact Us
+          </Nav.Link>
+          <Nav.Link as={Link} to="/comment" replace>
+            Comment
           </Nav.Link>
         </Nav>
         <Nav>

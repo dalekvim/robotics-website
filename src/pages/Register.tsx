@@ -80,59 +80,61 @@ export const Register: React.FC<RouteComponentProps> = ({ history }) => {
             }
           }}
         >
-          <FForm>
-            <Form.Group>
-              <Form.Label>Name</Form.Label>
-              <Row>
-                <Col>
-                  <Field
-                    name="firstName"
-                    type="input"
-                    placeholder="First name"
-                    as={Form.Control}
-                  />
-                </Col>
-                <Col>
-                  <Field
-                    name="lastName"
-                    type="input"
-                    placeholder="Last name"
-                    as={Form.Control}
-                  />
-                </Col>
-              </Row>
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Field
-                name="email"
-                type="email"
-                placeholder="Enter email"
-                as={Form.Control}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Field
-                name="password"
-                type="password"
-                placeholder="Password"
-                as={Form.Control}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Field
-                name="confirmPassword"
-                type="password"
-                placeholder="Password"
-                as={Form.Control}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </FForm>
+          {({ isSubmitting }) => (
+            <FForm>
+              <Form.Group>
+                <Form.Label>Name</Form.Label>
+                <Row>
+                  <Col>
+                    <Field
+                      name="firstName"
+                      type="input"
+                      placeholder="First name"
+                      as={Form.Control}
+                    />
+                  </Col>
+                  <Col>
+                    <Field
+                      name="lastName"
+                      type="input"
+                      placeholder="Last name"
+                      as={Form.Control}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Field
+                  name="email"
+                  type="email"
+                  placeholder="Enter email"
+                  as={Form.Control}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Field
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  as={Form.Control}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <Field
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Password"
+                  as={Form.Control}
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit" disabled={isSubmitting}>
+                Submit
+              </Button>
+            </FForm>
+          )}
         </Formik>
       </Struct>
     </Layout>

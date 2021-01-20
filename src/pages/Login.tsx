@@ -42,7 +42,7 @@ export const Login: React.FC<RouteComponentProps> = ({ history }) => {
             setSubmitting(false);
           }}
         >
-          {() => (
+          {({ isSubmitting }) => (
             <FForm>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -62,7 +62,7 @@ export const Login: React.FC<RouteComponentProps> = ({ history }) => {
                   as={Form.Control}
                 />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" disabled={isSubmitting}>
                 Submit
               </Button>
             </FForm>
