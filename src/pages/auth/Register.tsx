@@ -121,7 +121,7 @@ export const Register: React.FC<RouteComponentProps> = ({ history }) => {
                   as={Form.Control}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
                 <Field
                   name="confirmPassword"

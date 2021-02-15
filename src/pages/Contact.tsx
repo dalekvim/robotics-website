@@ -15,6 +15,7 @@ const MEMBERS = gql`
 `;
 
 interface member {
+  _id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -33,6 +34,7 @@ export const Contact: React.FC = () => {
       <div>
         {data.members.map((member: member) => (
           <Member
+            key={member._id}
             name={`${member.firstName} ${member.lastName}`}
             email={member.email}
           >
