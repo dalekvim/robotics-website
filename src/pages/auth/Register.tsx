@@ -7,8 +7,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { RouteComponentProps } from "react-router-dom";
-import { Layout } from "../components/Layout";
-import { Struct } from "../components/Struct";
+import { Layout } from "../../components/Layout";
+import { Struct } from "../../components/Struct";
 
 const REGISTER = gql`
   mutation(

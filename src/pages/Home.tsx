@@ -1,8 +1,15 @@
-import { Alert } from "react-bootstrap";
+import { useContext } from "react";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import { RouteComponentProps } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
+import { Blog } from "../components/Blog";
 import { Layout } from "../components/Layout";
 import { Struct } from "../components/Struct";
 
-export const Home: React.FC = () => {
+export const Home: React.FC<RouteComponentProps> = ({ history }) => {
+  const { value } = useContext(AuthContext);
+
   return (
     <Layout>
       <Alert variant="danger">
@@ -24,17 +31,21 @@ export const Home: React.FC = () => {
               by!
             </b>
           </p>
-          <Struct title="Update from the 15th of January 2021" importance={3}>
-            <p>
-              I recently heard plans from Mrs Nemaura to change the times for
-              the Robotics Club into more convenient ones:
-            </p>
-            <p>
-              It turns out most people don't stick around at school on Friday
-              afternoons, but then again that shouldn't have been a surprise.
-            </p>
-          </Struct>
         </div>
+        {value ? (
+          <div style={{ display: "flex" }}>
+            <Button
+              variant="primary"
+              onClick={() => history.push("/post/create")}
+              style={{ marginLeft: "auto" }}
+            >
+              New Post
+            </Button>
+          </div>
+        ) : null}
+        <hr />
+        <Blog />
+        <hr />
         <Struct title="FAQs" importance={2}>
           <Struct title="When and where is it?" importance={3}>
             <p>

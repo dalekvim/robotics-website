@@ -1,10 +1,11 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { Formik, Form as FForm } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
+import { AuthContext } from "../AuthContext";
 import { Layout } from "../components/Layout";
 import { Struct } from "../components/Struct";
 
@@ -30,6 +31,7 @@ export const Profile: React.FC = () => {
   const { loading, error, data } = useQuery(CURRENT_USER);
   const [alert, setAlert] = useState(<></>);
   const [updateBio] = useMutation(UPDATE_BIO);
+  const { setValue } = useContext(AuthContext);
 
   if (loading || error) {
     return (
@@ -39,7 +41,10 @@ export const Profile: React.FC = () => {
             <span className="sr-only">Loading...</span>
           </Spinner>
         ) : error ? (
-          <Alert variant="warning">{error.message}</Alert>
+          <>
+            <Alert variant="warning">{error.message}</Alert>
+            {setValue(false)}
+          </>
         ) : null}
       </Layout>
     );
@@ -73,6 +78,7 @@ export const Profile: React.FC = () => {
                   }
                 } catch (err) {
                   setAlert(<Alert variant="warning">{err.message}</Alert>);
+                  setValue(false);
                 }
                 setSubmitting(false);
               }}

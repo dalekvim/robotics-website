@@ -2,12 +2,13 @@ import { Field, Formik, Form as FForm } from "formik";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Layout } from "../components/Layout";
-import { Struct } from "../components/Struct";
+import { Layout } from "../../components/Layout";
+import { Struct } from "../../components/Struct";
 import { gql, useMutation } from "@apollo/client";
-import { useState } from "react";
-import { setAccessToken } from "../accessToken";
+import { useContext, useState } from "react";
+import { setAccessToken } from "../../accessToken";
 import { RouteComponentProps } from "react-router-dom";
+import { AuthContext } from "../../AuthContext";
 
 const LOGIN = gql`
   mutation($email: String!, $password: String!) {
@@ -20,6 +21,7 @@ const LOGIN = gql`
 export const Login: React.FC<RouteComponentProps> = ({ history }) => {
   const [login] = useMutation(LOGIN);
   const [alert, setAlert] = useState(<></>);
+  const { setValue } = useContext(AuthContext);
 
   return (
     <Layout>
@@ -32,6 +34,7 @@ export const Login: React.FC<RouteComponentProps> = ({ history }) => {
             try {
               const { data } = await login({ variables: { email, password } });
               setAccessToken(data!.login.accessToken);
+              setValue(true);
               setAlert(
                 <Alert variant="success">Logged in successfully.</Alert>
               );

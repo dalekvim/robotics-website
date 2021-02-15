@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 
 export const Header: React.FC = () => {
+  const { value } = useContext(AuthContext);
+
   return (
     <Navbar bg="light" expand="lg">
       <Link to="/" replace>
@@ -23,15 +26,20 @@ export const Header: React.FC = () => {
           </Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link as={Link} to="/profile" replace>
-            Profile
-          </Nav.Link>
-          <Nav.Link as={Link} to="/register" replace>
-            Register
-          </Nav.Link>
-          <Nav.Link as={Link} to="/login" replace>
-            Login
-          </Nav.Link>
+          {value ? (
+            <Nav.Link as={Link} to="/profile" replace>
+              Profile
+            </Nav.Link>
+          ) : (
+            <>
+              <Nav.Link as={Link} to="/register" replace>
+                Register
+              </Nav.Link>
+              <Nav.Link as={Link} to="/login" replace>
+                Login
+              </Nav.Link>
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
